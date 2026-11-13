@@ -7,3 +7,7 @@ The visual assets in `assets/images/` are generated concept imagery: a photoreal
 These images demonstrate an art direction. They must not be used to claim that a depicted item or drink is actually sold, or that a photographed place is the Jolt ’N Bolt location. Jolt ’N Bolt brand and menu details came from public pages and require owner validation before commercial production.
 
 The shop's name, contact details and product names are included in an explicitly labeled independent concept for private demonstration. Obtain the owner's authorization before promoting it as an official website.
+
+### V2 image uniqueness
+
+The breakfast and chicken-pesto imagery consists of four separately cropped, high-resolution original AI-generated food photographs (`avocado-brioche.webp`, `bacon-ciabatta.webp`, `salmon-lox-bagel.webp`, `chicken-pesto-ciabatta.webp`). Each depicts a different recipe. All other showcased products have distinct image sources; remote Unsplash photography is listed in README.md with license attribution.

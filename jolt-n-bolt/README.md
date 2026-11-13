@@ -88,3 +88,29 @@ assets/images/         Optimized locally generated concept photographs
 assets/favicon.svg     Original concept lightning icon
 ASSET-NOTES.md         Image usage and source explanations
 ```
+
+## V2 QA and menu corrections (Nov 12, 2026)
+
+- **77 distinct menu products indexed**, including all menu categories visible on the public DoorDash pickup storefront at review time. This is a snapshot, not a live API. Owner approval and periodic re-audits are required before official use.
+- **18 individual product photographs** now each have a unique image source. Breakfast cards use four newly generated menu-representative sandwich crops (not actual merchant photos); bowls, smoothies, lunch, and juice use distinct representative visuals, with clearly disclosed Unsplash stock photos where applicable.
+- **Prices** use the public *pickup* ordering portal rather than the delivery marketplace. We verified Avocado Brioche $9.63; Bacon Ciabatta $9.85; Salmon Lox Bagel $10.95; Açaí $12.25; Matcha Bowl $11.25; Berry Blast $10.73; Chicken Pesto $13.15. Drinks that offer multiple sizes show “Price by size” instead of a made-up price.
+- **Direct item links:** We could not verify public per-product DoorDash URLs. Do not fabricate them. The data model includes an optional `orderUrl` property to receive each validated deep link after obtaining links through the merchant account or copying a working URL from the live storefront. Until then, product detail buttons lead to the verified DoorDash store. On supported browsers, the product name is copied to help locate it.
+- **Search:** covers names, descriptions, ingredients, categories, synonyms, accents, word prefixes, and modest misspellings. Typing automatically searches across all categories. A text-only index preserves searchable items without inventing photos.
+- **Detail images** use `object-fit: contain` rather than stretching or cropping in the preview dialog; gallery cards retain tasteful `object-fit: cover` framing.
+- **No merchant integration yet:** Owner consent is needed to connect authenticated inventory, pricing feeds, or true product deep links. The website never collects payment information.
+
+### Third-party editorial photo license/source credits
+
+Representative photo CDN assets in `menu-data.js` come from free-to-use Unsplash photos, not Jolt 'N Bolt's kitchen. Please retain attributions in project documentation and check current license terms before commercial handoff:
+
+- Detox Green Smoothie: Paulina Chmolowska, https://unsplash.com/photos/qlWfxFXl15I
+- Superfruit Max: Bakd&Raw / Karolin Baitinger, https://unsplash.com/photos/G-qUSofkSr4
+- Chipotle Turkey Sub: Hybrid Storytellers, https://unsplash.com/photos/gX1Y5vEu1jE
+- Orange Juice: David Foodphototasty, https://unsplash.com/photos/Ghvuie1Y8Cc
+- Tropical Haven: Maja Vujic, https://unsplash.com/photos/7UGP-9j5L0E
+- BLT with Avocado: Eiliv Aceron, https://unsplash.com/photos/PlLvvTs-kxU
+- Matcha Bowl: Rohtopia, https://unsplash.com/photos/6Ugf0mlKkp4
+- Morning Detox: Alexander Mils, https://unsplash.com/photos/nG4ZimMIO_k
+- Teriyaki Chicken Power Bowl: joe boshra, https://unsplash.com/photos/GVJAkiE71Kg
+
+The photographs are *representative* of the product category and may not show the precise recipe or presentation. Replace with owner-approved actual product photography for the final commercial launch.
