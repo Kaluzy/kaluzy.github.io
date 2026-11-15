@@ -1,0 +1,31 @@
+name: Render outreach email artwork
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/render_email_artwork.py'
+      - '.github/workflows/render-email-artwork.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --quiet Pillow
+      - run: python scripts/render_email_artwork.py
+      - name: Commit generated JPG images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add email-previews/*.jpg
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish HTML email pitch images"
+            git push
+          fi
