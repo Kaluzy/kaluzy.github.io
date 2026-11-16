@@ -1,0 +1,24 @@
+name: Publish approved A&J email dashboard
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-aj-dashboard.yml']
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch approved screenshot
+        run: |
+          mkdir -p email-previews
+          curl --fail --location --silent --show-error --retry 3 'https://sdmntpreastus2.oaiusercontent.com/files/00000000-78c0-81f6-9fb0-8d2645cdb8ca/raw?se=2026-11-16T23%3A08%3A15Z&sp=r&sv=2026-06-06&sr=b&scid=2371641d-ddbc-5be6-bd5e-9ed1b7864eb8&skoid=dd316919-ffbf-4550-9c54-dfc99f412009&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-16T22%3A01%3A44Z&ske=2026-11-17T22%3A01%3A44Z&sks=b&skv=2026-06-06&sig=W8Vep3GCTZ2oofQI2s4oxn0TLJtoVQtYTdMxBXYS2yU%3D' -o email-previews/approved-a-and-j-dashboard.jpg
+          file email-previews/approved-a-and-j-dashboard.jpg
+      - name: Publish
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add email-previews/approved-a-and-j-dashboard.jpg
+          git commit -m 'Add approved A&J assistant dashboard for HTML email'
+          git push
